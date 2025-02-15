@@ -7,7 +7,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode;
 			<head>
 				<title>repro-authkit-nexjs-suspense</title>
 				<style type="text/css">
-					{`body { font-family: 'Inter', sans-serif; color: #ffe; background-color: #000 }`}
+					{`body { font-family: 'Inter', sans-serif }`}
 				</style>
 			</head>
 			<body>

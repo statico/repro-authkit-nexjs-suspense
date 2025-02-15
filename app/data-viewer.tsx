@@ -3,7 +3,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 
 export default function DataViewer() {
-  const { data } = useSuspenseQuery({
+  const { data, error } = useSuspenseQuery({
     queryKey: ["data"],
     queryFn: () => fetch("/api/data").then((res) => res.json()),
   });

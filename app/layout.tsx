@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
+import Providers from "./providers";
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode; }>) {
   return (
@@ -10,7 +11,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode;
 				</style>
 			</head>
 			<body>
-				{children}
+				<Providers>
+					<Suspense fallback={<div>Loading...</div>}>
+						{children}
+					</Suspense>
+				</Providers>
 			</body>
 		</html>
   );

@@ -1,8 +1,8 @@
 'use client';
 
-import { signOut, getSignInUrl, getSignUpUrl } from '@workos-inc/authkit-nextjs';
+import { getSignInUrl, getSignUpUrl, signOut } from '@workos-inc/authkit-nextjs';
 import { useAuth } from '@workos-inc/authkit-nextjs/components';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function UserMenu() {
   const { user, loading } = useAuth();
@@ -18,7 +18,7 @@ export default function UserMenu() {
 		return <div>Loading auth...</div>
 	} else if (user) {
 		return <div>
-			<h2>Welcome back {user?.firstName && `, ${user?.firstName}`}</h2>
+			<h2>Welcome back, {user?.firstName ?? "user"}</h2>
 			<button onClick={() => signOut()}>Sign out</button>
 		</div>
 	} else {

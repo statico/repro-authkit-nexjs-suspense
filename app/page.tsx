@@ -3,13 +3,16 @@ import DataViewer from "../lib/data-viewer";
 import UserMenu from "../lib/user-menu";
 import { Suspense } from "react";
 import { fetcher } from "../lib/fetcher";
+import { headers } from "next/headers";
 
 export default async function Page() {
   const queryClient = new QueryClient()
 
+  const cookie = (await headers()).get('cookie') ?? ''
+
   await queryClient.prefetchQuery({
     queryKey: ['data'],
-    queryFn: fetcher('/api/data'),
+    queryFn: fetcher('/api/data', cookie),
   })
 
   return <HydrationBoundary state={dehydrate(queryClient)}>

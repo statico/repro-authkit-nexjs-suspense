@@ -1,0 +1,23 @@
+{
+  "name": "repro-authkit-nexjs-suspense",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tanstack/react-query": "^5.66.0",
+    "@workos-inc/authkit-nextjs": "^1.4.0",
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.8",
+    "typescript": "5.7.3"
+  }
+}

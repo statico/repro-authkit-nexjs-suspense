@@ -13,7 +13,10 @@ export default async function Page() {
   return <HydrationBoundary state={dehydrate(queryClient)}>
     <div>
       <h1>Hello Next.js!</h1>
+      <hr/>
       <UserMenu />
+      <hr/>
+      <h2>Data</h2>
       <DataViewer />
     </div>
   </HydrationBoundary>

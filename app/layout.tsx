@@ -12,9 +12,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode;
 			</head>
 			<body>
 				<Providers>
-					<Suspense fallback={<div>Loading...</div>}>
-						{children}
-					</Suspense>
+					{children}
 				</Providers>
 			</body>
 		</html>

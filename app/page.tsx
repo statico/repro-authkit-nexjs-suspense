@@ -1,6 +1,7 @@
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import DataViewer from "./data-viewer";
 import UserMenu from "./user-menu";
+import { Suspense } from "react";
 
 export default async function Page() {
   const queryClient = new QueryClient()
@@ -17,7 +18,9 @@ export default async function Page() {
       <UserMenu />
       <hr/>
       <h2>Data</h2>
-      <DataViewer />
+      <Suspense fallback={<div>Loading data...</div>}>
+        <DataViewer />
+      </Suspense>
     </div>
   </HydrationBoundary>
 }

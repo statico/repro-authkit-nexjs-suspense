@@ -1,11 +1,12 @@
 'use client';
 
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { fetcher } from "./fetcher";
 
 export default function DataViewer() {
   const { data, error } = useSuspenseQuery({
     queryKey: ["data"],
-    queryFn: () => fetch("/api/data").then((res) => res.json()),
+    queryFn: fetcher('/api/data'),
   });
 
   return <ul>

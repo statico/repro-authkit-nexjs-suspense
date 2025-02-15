@@ -1,14 +1,15 @@
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
-import DataViewer from "./data-viewer";
-import UserMenu from "./user-menu";
+import DataViewer from "../lib/data-viewer";
+import UserMenu from "../lib/user-menu";
 import { Suspense } from "react";
+import { fetcher } from "../lib/fetcher";
 
 export default async function Page() {
   const queryClient = new QueryClient()
 
   await queryClient.prefetchQuery({
     queryKey: ['data'],
-    queryFn: () => fetch("http://localhost:3000/api/data").then((res) => res.json()),
+    queryFn: fetcher('/api/data'),
   })
 
   return <HydrationBoundary state={dehydrate(queryClient)}>
